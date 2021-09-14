@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Vue js Project</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+	<style>
+		.one{
+			color: green;
+		}
+		.two{
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div id="aj">
+		<a v-bind:href="address">Vuejs</a>
+		<h1 :class="classes"> Easy Learning </h1>
+		<input type="text" v-bind:value="name">
+	</div>
+
+
+
+<script>
+	
+	let app = new Vue({
+	el: "#aj",
+	data:{
+		address: "https://vuejs.org/",
+		classes: ['one', 'two'],
+		name: "Asif"
+	}
+
+
+
+
+
+})
+</script>
+</body>
+</html>
