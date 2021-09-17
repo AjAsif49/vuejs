@@ -28,13 +28,13 @@
 
 
 
-<style>
+<style scoped>
 	nav{
 		text-align: center;
 	}
 
 	nav ul{
-		padding: 0
+		padding: 0;
 	}
 	nav li{
 		display: inline-block;
