@@ -1,7 +1,8 @@
 <template>
 	<div>
         <h1> Posts </h1><hr>
-    <div v-for="post in posts" :key="post.id"> 
+        <input type="text" v-model="searchterm" placeholder="Search">
+    <div v-for="post in filtersearch" :key="post.id"> 
         <h2>{{ post.title }}</h2>
         <p> {{ post.body | snippet }} </p>
     </div>
@@ -16,9 +17,18 @@ import axios from 'axios'
 		name: "Hook",
 		data(){
 			return{
-                posts:[]
+                posts:[],
+                searchterm: ''
 			}
 		},
+        computed:{
+        filtersearch(){
+            return this.posts.filter(post =>{
+                return post.title.match(this.searchterm)
+            })
+        }
+    },
+
         methods:{
             
         },
