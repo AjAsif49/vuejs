@@ -1,44 +1,48 @@
 <template>
-	<div class="Hook">
-        <h1> {{ title }} </h1>
-        <button @click="ChangeTitle"> Click me </button>
+	<div>
+        <h1> Posts </h1><hr>
+    <div v-for="post in posts" :key="post.id"> 
+        <h2>{{ post.title }}</h2>
+        <p> {{ post.body }} </p>
     </div>
-
+    </div>
 </template>
 
 
 
 <script>
+import axios from 'axios'
 	export default{
 		name: "Hook",
 		data(){
 			return{
-                title: "Hook main part"
+                posts:[]
 			}
 		},
         methods:{
-            ChangeTitle(){
-                this.title = 'Easy Learning'
-            }
+            
         },
-        beforeCreate(){
-            alert('before creating hook')
-        }, 
         created(){
-            alert('after creating hook')
-
-        },
-        beforeUpdate(){
-            alert('Before Updating hook')
-
+            axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then(response =>{
+                this.posts = response.data
+            })
+            .catch(error=>{
+                console.log(error)
+            })
         }
+        
 	}
 
 </script>
 
 
 
-<style>
+<style scoped>
+h1{
+        color: tomato;
+        text-align: center;
+    }
+</style>>
 	
 
-</style>
