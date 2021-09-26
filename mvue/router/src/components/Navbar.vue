@@ -18,6 +18,10 @@
 
 				</li>
 			</ul>
+
+			<button @click="Contact" >Contact</button>
+			<button @click="About" >About</button>
+
 		</div>
 	</div>
 
@@ -31,6 +35,14 @@
 		data(){
 			return{
 				UserIds: ['1', '2','3','4','5',]
+			}
+		},
+		methods:{
+			Contact(){
+				this.$router.push({name: 'Contact'})
+			},
+			About(){
+				this.$router.push({name: 'About'})
 			}
 		}
 	}
